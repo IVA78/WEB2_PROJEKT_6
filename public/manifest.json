@@ -1,0 +1,27 @@
+{
+  "name": "Book Tracker",
+  "short_name": "Books",
+  "description": "Projektna aplikacija na predmetu Napredni razvoj za web",
+  "display": "fullscreen",
+  "theme_color": "#0078d4",
+  "start_url": "/index.html",
+  "background_color": "#ffffff",
+  "scope": ".",
+  "orientation": "portrait-primary",
+  "dir": "ltr",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/assets/img/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/img/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "genre": "Fiction",
+    "image": "/assets/books/book.jpg"
+  },
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "genre": "Dystopian, Political Fiction",
+    "image": "/assets/books/book.jpg"
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "genre": "Classic, Fiction",
+    "image": "/assets/books/book.jpg"
+  },
+  {
+    "title": "Moby-Dick",
+    "author": "Herman Melville",
+    "genre": "Adventure, Fiction",
+    "image": "/assets/books/book.jpg"
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "genre": "Romance, Fiction",
+    "image": "/assets/books/book.jpg"
+  }
+]

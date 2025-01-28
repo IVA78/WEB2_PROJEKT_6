@@ -6,9 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Tracker</title>
     <link rel="stylesheet" href="./style.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/img/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/img/apple-touch-icon.png"
+    />
+
+    <link rel="manifest" href="manifest.json" />
   </head>
 
   <body>
     <p>Book tracker!</p>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then(() => {
+            console.log("Service Worker registered successfully.");
+          })
+          .catch((error) => {
+            console.error("Service Worker registration failed:", error);
+          });
+      }
+    </script>
   </body>
 </html>
