@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "serve": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "path": "^0.12.7"
+  }
+}
