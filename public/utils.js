@@ -87,8 +87,6 @@ function displayBooks() {
 // Load books when the script is loaded
 loadBooks();
 
-// app.js
-
 // Saving data in IndexedDB
 function saveBookToIndexedDB(book) {
   const request = indexedDB.open("libraryDB", 1);

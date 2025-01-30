@@ -4,6 +4,7 @@ const URLS_TO_CACHE = [
   "/index.html",
   "/style.css",
   "manifest.json",
+  "/utils.js",
   "/assets/books/books.json",
   "/assets/books/book.jpg",
   "/assets/img/favicon-96x96.png",
