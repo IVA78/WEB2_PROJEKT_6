@@ -25,7 +25,33 @@
   </head>
 
   <body>
-    <p>Book tracker!</p>
+    <div class="container1">
+      <h1>Book Library</h1>
+      <div id="book-list">
+        <!-- Books will be dynamically added here -->
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="container2">
+      <h1>Book Information</h1>
+      <form id="book-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required />
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required />
+
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" required />
+
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image" required />
+
+        <button type="submit">Save Book</button>
+      </form>
+    </div>
 
     <script>
       if ("serviceWorker" in navigator) {
@@ -38,6 +64,41 @@
             console.error("Service Worker registration failed:", error);
           });
       }
+
+      // app.js - registracija za push obavijesti
+      if ("serviceWorker" in navigator && "PushManager" in window) {
+        navigator.serviceWorker.ready.then((registration) => {
+          // Prvo tražimo dozvolu za push notifikacije
+          Notification.requestPermission().then((permission) => {
+            if (permission === "granted") {
+              console.log("User granted notifications.");
+
+              // Ako je dozvoljeno, pretplatimo se na push
+              registration.pushManager
+                .subscribe({
+                  userVisibleOnly: true,
+                  applicationServerKey:
+                    "BArIaJA-Z9KkT5IIsdsPttxJHyN9teWLX3GE4Mpv0e2VcLmxneP7UrfxP8rq9bkkJbFljl_-n-bHVvbsFpc6kLY", // Zamijenite s pravim VAPID ključem
+                })
+                .then((subscription) => {
+                  console.log("Push Subscription:", subscription);
+                  // Saving subscription to local storage
+                  localStorage.setItem(
+                    "pushSubscription",
+                    JSON.stringify(subscription)
+                  );
+                })
+                .catch((error) => {
+                  console.error("Push subscription failed:", error);
+                });
+            } else {
+              console.log("User denied notifications.");
+            }
+          });
+        });
+      }
     </script>
+
+    <script src="utils.js"></script>
   </body>
 </html>
