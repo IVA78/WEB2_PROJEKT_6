@@ -61,17 +61,12 @@ function displayBooks() {
 
     //Adding event listener
     shareButton.addEventListener("click", async () => {
-      const bookDetails = {
-        title: book.title,
-        url: window.location.href, // Current page URL or book-specific URL
-      };
-
       if (navigator.share) {
         try {
           await navigator.share({
-            title: bookDetails.title,
-            text: `Check out this book: ${bookDetails.title}`,
-            url: bookDetails.url,
+            title: book.title,
+            text: `Check out this book: "${book.title}" by ${book.author}. Genre: ${book.genre}`,
+            url: window.location.href,
           });
           console.log("Book shared successfully!");
         } catch (error) {
