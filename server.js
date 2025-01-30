@@ -4,15 +4,13 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3014;
 
-// Postavi statički direktorij
+// Static directory
 app.use(express.static(path.join(__dirname, "public")));
 
-// Za sve ostale rute, posluži `index.html`
+// Serve `index.html` file
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
-
-//send notification
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);

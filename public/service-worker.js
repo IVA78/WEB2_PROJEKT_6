@@ -1,6 +1,8 @@
 const CACHE_NAME = "book-tracker-cache-v1";
 const URLS_TO_CACHE = [
   "/",
+  "/index.html",
+  "/style.css",
   "manifest.json",
   "/assets/books/books.json",
   "/assets/books/book.jpg",
@@ -60,28 +62,26 @@ self.addEventListener("sync", (event) => {
   }
 });
 
-// service-worker.js - dodavanje push notifikacija
-
+// Adding push notifications
 self.addEventListener("push", (event) => {
   const data = event.data.json();
 
-  // Prikazivanje notifikacije
+  // Show push notification
   self.registration.showNotification(data.title, {
     body: data.body,
-    icon: "assets/img/favicon-96x96.png", // Ikona notifikacije
+    icon: "assets/img/favicon-96x96.png",
   });
 });
 
 async function syncBooks() {
   console.log("Syncing books with server...");
 
-  // Čitanje podataka iz IndexedDB
+  // Reading data from IndexedDB
   const books = await getBooksFromIndexedDB();
 
-  // Simuliraj slanje podataka (u stvarnom scenariju, ovo bi moglo biti slanje na backend)
+  // Sending data to backend -> simulation
   if (books.length > 0) {
     console.log("Books to sync:", books);
-    // Simuliraj slanje podataka (u stvarnom scenariju, ovo bi moglo biti slanje na backend)
     await sleep(2000);
     console.log("Books have been successfully sent to the server!");
     sendPushNotification();
@@ -115,7 +115,7 @@ function getBooksFromIndexedDB() {
   });
 }
 
-// Funkcija koja šalje push obavijest
+// Sending push notification function
 function sendPushNotification() {
   self.registration.showNotification("Sync Complete", {
     body: "Your books have been successfully synced with the server!",

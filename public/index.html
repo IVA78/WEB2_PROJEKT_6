@@ -65,15 +65,15 @@
           });
       }
 
-      // app.js - registracija za push obavijesti
+      // Registration for push notifications
       if ("serviceWorker" in navigator && "PushManager" in window) {
         navigator.serviceWorker.ready.then((registration) => {
-          // Prvo tražimo dozvolu za push notifikacije
+          // Asking for permission
           Notification.requestPermission().then((permission) => {
             if (permission === "granted") {
               console.log("User granted notifications.");
 
-              // Ako je dozvoljeno, pretplatimo se na push
+              // Subscribe to push notification if permitted
               registration.pushManager
                 .subscribe({
                   userVisibleOnly: true,
@@ -82,7 +82,7 @@
                 })
                 .then((subscription) => {
                   console.log("Push Subscription:", subscription);
-                  // Saving subscription to local storage
+                  // Saving subscription to local storage (usually it would be backend)
                   localStorage.setItem(
                     "pushSubscription",
                     JSON.stringify(subscription)

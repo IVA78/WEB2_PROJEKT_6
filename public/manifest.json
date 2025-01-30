@@ -1,7 +1,7 @@
 {
   "name": "Book Tracker",
   "short_name": "Books",
-  "description": "Projektna aplikacija na predmetu Napredni razvoj za web",
+  "description": "Projektna aplikacija na predmetu Napredni razvoj programske potpore za web",
   "display": "fullscreen",
   "theme_color": "#0078d4",
   "start_url": "/index.html",
